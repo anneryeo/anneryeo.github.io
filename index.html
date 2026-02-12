@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RYEO Labs: Experiments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #00d9ff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            word-spacing: 0.1em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: rgba(20, 25, 45, 0.6);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.3);
+            background: rgba(20, 25, 45, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.15);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.15);
+            color: #00d9ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .card-link::after {
+            content: '→';
+            display: inline-block;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-link::after {
+            transform: translateX(4px);
+        }
+
+        .card-link:hover {
+            color: #00ffff;
+        }
+
+        .featured {
+            grid-column: 1 / -1;
+        }
+
+        .featured .card-badge {
+            background: rgba(255, 100, 0, 0.15);
+            color: #ff6400;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .card {
+                padding: 32px;
+            }
+
+            .featured {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RYEO Labs: Experiments</h1>
+            <p class="subtitle">High-tech projects & explorations</p>
+        </header>
+
+        <div class="grid">
+            <div class="card featured">
+                <span class="card-badge">Featured</span>
+                <h2>IoT Temperature Dashboard</h2>
+                <p>A real-time temperature monitoring system using ESP32 microcontrollers. Visualize sensor data, track trends, and explore IoT connectivity patterns.</p>
+                <a href="/DS169_IOT/ESP32_TEMPSENSOR/dashboard/" class="card-link">Explore Project</a>
+            </div>
+
+            <div class="card">
+                <span class="card-badge">Main Site</span>
+                <h2>RYEO Labs</h2>
+                <p>Portfolio and experimentation hub. Discover research, projects, and technical deep-dives into emerging technologies and innovative ideas.</p>
+                <a href="https://ryeolabs.vercel.app" class="card-link">Visit Site</a>
+            </div>
+
+            <div class="card">
+                <span class="card-badge">Repository</span>
+                <h2>Source Code</h2>
+                <p>Explore the code behind RYEO Labs experiments on GitHub. Contribute, fork, and collaborate on open-source initiatives.</p>
+                <a href="https://github.com/anneryeo" class="card-link">View GitHub</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
