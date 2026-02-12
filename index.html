@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RYEO LABS: Experiments</title>
+    <title>RYEO LABS EXPERIMENTS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,11 +17,27 @@
 
         body {
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: linear-gradient(135deg, #2d1810 0%, #4a2818 100%);
             color: #e0e0e0;
             min-height: 100vh;
             padding: 40px 20px;
             overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -31,45 +47,59 @@
 
         header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-top: 20px;
+            margin-bottom: 50px;
             animation: fadeIn 1s ease-out;
+            padding: 20px 0;
         }
 
         h1 {
             font-size: 3.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #00d9ff 0%, #0099ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 40px;
+            margin-bottom: 8px;
             word-spacing: 0.1em;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #ffb84d;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: #888;
-            font-weight: 400;
-            letter-spacing: 0.05em;
+            font-size: 1rem;
+            color: #c9b8a8;
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            margin-bottom: 0px;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            margin-top: 60px;
+            gap: 40px;
+            margin-top: 1px;
         }
 
         .card {
-            background: rgba(20, 25, 45, 0.6);
-            border: 1px solid rgba(0, 217, 255, 0.1);
+            background: rgba(45, 20, 15, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.3);
             border-radius: 12px;
             padding: 40px;
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             animation: slideUp 0.8s ease-out;
         }
@@ -81,7 +111,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.15), transparent);
             transition: left 0.6s ease;
         }
 
@@ -91,15 +121,15 @@
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: rgba(0, 217, 255, 0.3);
-            background: rgba(20, 25, 45, 0.8);
-            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.15);
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(45, 20, 15, 0.9);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
         }
 
         .card-badge {
             display: inline-block;
-            background: rgba(0, 217, 255, 0.15);
-            color: #00d9ff;
+            background: rgba(255, 107, 53, 0.2);
+            color: #ffb84d;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -119,14 +149,14 @@
 
         .card p {
             font-size: 0.95rem;
-            color: #a0a0a0;
+            color: #c0c0c0;
             line-height: 1.6;
             margin-bottom: 24px;
         }
 
         .card-link {
             display: inline-block;
-            color: #00d9ff;
+            color: #ffb84d;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -148,7 +178,7 @@
         }
 
         .card-link:hover {
-            color: #00ffff;
+            color: #ff6b35;
         }
 
         .featured {
@@ -156,8 +186,8 @@
         }
 
         .featured .card-badge {
-            background: rgba(255, 100, 0, 0.15);
-            color: #ff6400;
+            background: rgba(255, 154, 0, 0.25);
+            color: #ffa500;
         }
 
         .featured h2 {
@@ -219,8 +249,9 @@
 <body>
     <div class="container">
         <header>
-            <h1>RYEO LABS: Experiments</h1>
-            <p class="subtitle">High-tech projects & explorations</p>
+            <h1>RYEO LABS</h1>
+            <h2>Experiments</h2>
+            <p class="subtitle">High-tech dives and explorations.</p>
         </header>
 
         <div class="grid">
@@ -241,7 +272,7 @@
             <div class="card">
                 <span class="card-badge">Repository</span>
                 <h2>Source Code</h2>
-                <p>Explore the code behind RYEO LABS experiments on GitHub. Contribute, fork, and collaborate on open-source initiatives.</p>
+                <p>Explore the code behind RYEO LAB experiments on GitHub. Contribute, fork, and collaborate on open-source initiatives.</p>
                 <a href="https://github.com/anneryeo" class="card-link">View GitHub</a>
             </div>
         </div>
